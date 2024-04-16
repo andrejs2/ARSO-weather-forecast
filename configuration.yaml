@@ -1,0 +1,11 @@
+
+# configuration for sensor # put this in confguration file under sensors
+sensor:
+  - platform: rest
+    name: ARSO forecast
+    resource: https://meteo.arso.gov.si/uploads/probase/www/fproduct/text/sl/fcast_SI_OSREDNJESLOVENSKA_latest.xml
+    scan_interval: 3600
+    value_template: "{{ now() }}"
+    json_attributes_path: "$.data"
+    json_attributes:
+      - metData
